@@ -14,8 +14,11 @@ public class Student {
 	private int eng;
 	private int math;
 	
+	public Student() {
+		// TODO Auto-generated constructor stub
+	}
 	
-	public Student(int num, String name, String addr, String gender, String ban, double height, int age, int score,
+	public Student(int num, String name, String addr, String gender, String ban, double height, int age,
 			int year) {
 		super();
 		this.num = num;
@@ -25,7 +28,7 @@ public class Student {
 		this.ban = ban;
 		this.height = height;
 		this.age = age;
-		this.score = score;
+//		this.score = score;
 		this.year = year;
 	}
 	

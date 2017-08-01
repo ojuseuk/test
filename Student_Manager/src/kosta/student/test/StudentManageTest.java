@@ -3,6 +3,8 @@ package kosta.student.test;
 import java.util.Scanner;
 
 import kosta.student.manage.StudentManager;
+import kosta.student.service.StudentService;
+import kosta.student.service.StudentService1;
 
 public class StudentManageTest {
 	public static void main(String[] args) {
@@ -22,14 +24,20 @@ public class StudentManageTest {
 		//		5.4 학년별 키 평균
 		// 0. 종료
 		Scanner scan = new Scanner(System.in);
-		StudentManager sm = new StudentManager();
+		StudentService ss = null;
 		
 		switch (scan.nextInt()) {
 		case 1:
-			sm.service1(scan);
-			
+			ss = new StudentService1();
+			int a = ss.start(scan);
+			if(a==1){
+				System.out.println("추가됨");
+			}else{
+				System.out.println("실패");
+			}
 			break;
 		case 3:
+			
 			
 			break;
 

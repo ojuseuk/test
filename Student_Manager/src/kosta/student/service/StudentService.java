@@ -1,6 +1,8 @@
 package kosta.student.service;
 
+import java.util.Scanner;
+
 public interface StudentService {
 	
-	void start();
+	int start(Scanner scan);
 }

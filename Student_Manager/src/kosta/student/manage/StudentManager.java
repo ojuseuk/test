@@ -17,10 +17,14 @@ public class StudentManager {
 	public StudentManager() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	public void service1(Scanner scan){
+
+	public boolean service1(Student s){
 		
+		return list.add(s);
 	}
 	
+	public void service3(){
+		
+	}
 	
 }
