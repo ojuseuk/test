@@ -2,10 +2,7 @@ package kosta.student.test;
 
 import java.util.Scanner;
 
-import kosta.student.manage.StudentManager;
-import kosta.student.service.StudentService;
-import kosta.student.service.StudentService1;
-import kosta.student.service.StudentService3;
+import kosta.student.service.*;
 
 public class StudentManageTest {
 	public static void main(String[] args) {
@@ -35,12 +32,25 @@ public class StudentManageTest {
 				ss.start(scan);
 				
 				break;
+			case 2:
+				ss = new StudentService2();
+				ss.start(scan);
+				break;
 			case 3:
 				ss = new StudentService3();
 				ss.start(scan);
 				
 				break;
-	
+			case 4:
+				ss = new StudentService4();
+				ss.start(scan);
+				break;
+			case 5:
+				
+				break;
+			case 0:
+				System.exit(0);
+				break;
 			default:
 				break;
 			}

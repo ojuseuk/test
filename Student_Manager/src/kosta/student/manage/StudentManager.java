@@ -1,5 +1,7 @@
 package kosta.student.manage;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -12,21 +14,37 @@ import kosta.student.vo.Student;
  */
 public class StudentManager {
 
-	List<Student> list = new LinkedList<>();
+	private static List<Student> list;
 	
 	public StudentManager() {
 		// TODO Auto-generated constructor stub
-		list.add(new Student(1, "홍", "서울", "남", "A", 150, 15, 60, 1));
-		list.add(new Student(2, "오", "부산", "여", "A", 140, 12, 70, 2));
-		list.add(new Student(3, "김", "인천", "남", "B", 50, 6, 120, 2));
-		list.add(new Student(4, "이", "인천", "남", "B", 170, 17, 40, 1));
-		list.add(new Student(5, "박", "부산", "여", "C", 60, 4, 90, 2));
-		list.add(new Student(6, "최", "대전", "남", "A", 180, 20, 100, 3));
+		if(list == null){
+			list = new LinkedList<>();
+			list.add(new Student(1, "홍", "서울", "남", "A", 150, 15, 60, 1));
+			list.add(new Student(2, "오", "부산", "여", "A", 140, 12, 70, 2));
+			list.add(new Student(3, "김", "인천", "남", "B", 50, 6, 120, 2));
+			list.add(new Student(4, "이", "인천", "남", "B", 170, 17, 40, 1));
+			list.add(new Student(5, "이", "부산", "여", "C", 60, 4, 90, 2));
+			list.add(new Student(6, "최", "대전", "남", "A", 180, 20, 100, 3));
+		}
+
 	}
 
 	public boolean service1(Student s){
 		
 		return list.add(s);
+	}
+	
+	public int service2(int num, int score){
+		
+		for (Student s : list) {
+			if(s.getNum() == num){
+				s.setScore(score);
+				return 1;
+			}
+		}
+		return 0;
+		
 	}
 	
 	public List<Student> service3(){
@@ -35,4 +53,33 @@ public class StudentManager {
 		
 	}
 	
+	public List<Student> service4Name(String string){
+		
+		List<Student> list2 = new LinkedList<>();
+		for (int i = 0; i < list.size(); i++) {
+			if(list.get(i).getName().equals(string)){
+				list2.add(list.get(i));
+//				return list.get(i);
+			}
+			if(list.get(i).getAddr().equals(string)){
+				list2.add(list.get(i));
+			}
+		}
+		return list2;
+	}
+	
+	
+	public void service5(){
+		
+		Collections.sort(list, new Comparator<Student>() {
+
+			@Override
+			public int compare(Student o1, Student o2) {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+		});
+		
+		
+	}
 }
