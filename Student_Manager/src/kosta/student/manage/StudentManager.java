@@ -8,8 +8,10 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import kosta.student.vo.Student;
 
@@ -72,7 +74,7 @@ public class StudentManager {
 		}
 		return list2;
 	}
-	
+
 	
 	public List<Student> service5Gender(){
 		
@@ -119,6 +121,26 @@ public class StudentManager {
 			int cnt2 = cnt.get(s);
 			map.replace(s, (map.get(s)/cnt2));
 		}
+		
+		
+		return map;
+	}
+	
+	public Map<String, Double> service5Addr(){
+		
+		Map<String, Double> map = list.stream()
+		.collect(Collectors.groupingBy(t->t.getAddr(), 
+				Collectors.averagingDouble(t->t.getScore())));
+		
+		
+		return map;
+	}
+	
+	public Map<Integer, Double> service5Year(){
+		
+		Map<Integer, Double> map = list.stream()
+		.collect(Collectors.groupingBy(t->t.getYear(), 
+				Collectors.averagingDouble(t->t.getHeight())));
 		
 		
 		return map;

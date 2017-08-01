@@ -17,7 +17,7 @@ public class StudentService3 implements StudentService{
 		StudentManager sm = new StudentManager();
 		List<Student> list = sm.service3();
 		
-		System.out.println("1.이름순 출력, 2.성적순 출력");
+		System.out.println("1.이름순 출력, 2.성적순 출력, 3.반별 출력");
 		switch (scan.nextInt()) {
 		case 1:
 			
@@ -41,6 +41,10 @@ public class StudentService3 implements StudentService{
 			.forEach((t)->System.out.println(t));
 			
 			break;
+		case 3:
+			list.stream()
+			.sorted((a, b) -> a.getBan().compareTo(b.getBan()))
+			.forEach(t->System.out.println(t));
 		default:
 			break;
 		}

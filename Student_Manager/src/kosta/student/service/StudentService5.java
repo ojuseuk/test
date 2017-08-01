@@ -30,14 +30,32 @@ public class StudentService5 implements StudentService {
 			
 			break;
 		case 2:
-			Map<String, Integer> map = sm.service5Ban();
+			Map<String, Integer> mapB = sm.service5Ban();
 
-			Set<String> keySet = map.keySet();
+			Set<String> keySet = mapB.keySet();
 			for (String s : keySet) {
-				int avg = map.get(s);
+				int avg = mapB.get(s);
 				System.out.println(s + ":" + avg);
 			}
+			break;
 		case 3:
+			
+			Map<String, Double> mapA = sm.service5Addr();
+			Set<String> keySetA = mapA.keySet();
+			for (String s : keySetA) {
+				Double avg = mapA.get(s);
+				System.out.println(s + ":" + avg);
+			}
+			
+			break;
+		case 4:
+			Map<Integer, Double> mapY = sm.service5Year();
+			Set<Integer> keySetY = mapY.keySet();
+			for (Integer s : keySetY) {
+				Double avg = mapY.get(s);
+				System.out.println(s + ":" + avg);
+			}
+			
 			
 			break;
 		default:
