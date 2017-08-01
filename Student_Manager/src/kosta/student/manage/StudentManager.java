@@ -1,10 +1,15 @@
 package kosta.student.manage;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 import kosta.student.vo.Student;
 
@@ -69,17 +74,53 @@ public class StudentManager {
 	}
 	
 	
-	public void service5(){
+	public List<Student> service5Gender(){
 		
 		Collections.sort(list, new Comparator<Student>() {
 
 			@Override
 			public int compare(Student o1, Student o2) {
 				// TODO Auto-generated method stub
-				return 0;
+				return o1.getGender().compareTo(o2.getGender());
 			}
 		});
 		
+		return list;
 		
+	}
+	
+	public Map<String, Integer> service5Ban(){
+		
+		Map<String, Integer> map = new HashMap<>();
+		Map<String, Integer> cnt = new HashMap<>();	//cnt
+		
+		Iterator<Student> it = list.iterator();
+		
+		while (it.hasNext()) {
+			Student s = (Student) it.next();
+			
+			if(map.containsKey(s.getBan())){
+				map.replace(s.getBan(), map.get(s.getBan()) + (s.getScore()));
+				cnt.replace(s.getBan(), cnt.get(s.getBan())+1);
+			}else{
+				map.put(s.getBan(), (s.getScore()));
+				cnt.put(s.getBan(), 1);
+			}
+			
+			if(!it.hasNext()){
+				
+			}
+			
+		}
+			
+		Set<String> keySet = cnt.keySet();
+		
+		for (String s : keySet) {
+			int cnt2 = cnt.get(s);
+			map.replace(s, (map.get(s)/cnt2));
+		}
+		
+		
+		return map;
 	}
 }

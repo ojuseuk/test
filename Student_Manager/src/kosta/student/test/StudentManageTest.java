@@ -46,7 +46,8 @@ public class StudentManageTest {
 				ss.start(scan);
 				break;
 			case 5:
-				
+				ss = new StudentService5();
+				ss.start(scan);
 				break;
 			case 0:
 				System.exit(0);
