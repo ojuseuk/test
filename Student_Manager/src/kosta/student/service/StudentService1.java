@@ -8,11 +8,13 @@ import kosta.student.vo.Student;
 public class StudentService1 implements StudentService {
 
 	@Override
-	public int start(Scanner scan) {
+	public void start(Scanner scan) {
 		// TODO Auto-generated method stub
 		// 1. 학생정보 추가(번호/이름/주소/성별/반/키/나이/학점)
 		Student student = new Student();
 		StudentManager sm = new StudentManager();
+		
+		System.out.println("학생정보 입력");
 		
 		System.out.println("번호를 입력하세요.");
 		student.setNum(scan.nextInt());
@@ -32,9 +34,9 @@ public class StudentService1 implements StudentService {
 		student.setYear(scan.nextInt());
 		
 		if(sm.service1(student)){
-			return 1;
+			System.out.println("추가됨");
 		}else{
-			return 0;
+			System.out.println("실패");
 		}
 		
 	}

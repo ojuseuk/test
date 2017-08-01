@@ -5,6 +5,7 @@ import java.util.Scanner;
 import kosta.student.manage.StudentManager;
 import kosta.student.service.StudentService;
 import kosta.student.service.StudentService1;
+import kosta.student.service.StudentService3;
 
 public class StudentManageTest {
 	public static void main(String[] args) {
@@ -26,23 +27,23 @@ public class StudentManageTest {
 		Scanner scan = new Scanner(System.in);
 		StudentService ss = null;
 		
-		switch (scan.nextInt()) {
-		case 1:
-			ss = new StudentService1();
-			int a = ss.start(scan);
-			if(a==1){
-				System.out.println("추가됨");
-			}else{
-				System.out.println("실패");
+		while(true){
+			System.out.println("1.학생정보 추가, 2.성적정보 추가, 3.학생 리스트 출력, 4.학생 정보 검색, 5.통계, 0.종료");
+			switch (scan.nextInt()) {
+			case 1:
+				ss = new StudentService1();
+				ss.start(scan);
+				
+				break;
+			case 3:
+				ss = new StudentService3();
+				ss.start(scan);
+				
+				break;
+	
+			default:
+				break;
 			}
-			break;
-		case 3:
-			
-			
-			break;
-
-		default:
-			break;
 		}
 	}
 }

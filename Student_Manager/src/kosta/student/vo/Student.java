@@ -10,15 +10,12 @@ public class Student {
 	private int age;
 	private int score;
 	private int year;
-	private int kor;
-	private int eng;
-	private int math;
 	
 	public Student() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Student(int num, String name, String addr, String gender, String ban, double height, int age,
+	public Student(int num, String name, String addr, String gender, String ban, double height, int age, int score,
 			int year) {
 		super();
 		this.num = num;
@@ -28,21 +25,27 @@ public class Student {
 		this.ban = ban;
 		this.height = height;
 		this.age = age;
-//		this.score = score;
+		this.score = score;
+		this.year = year;
+	}
+
+	public Student(int num, String name, String addr, String gender, String ban, double height, int age, int year) {
+		super();
+		this.num = num;
+		this.name = name;
+		this.addr = addr;
+		this.gender = gender;
+		this.ban = ban;
+		this.height = height;
+		this.age = age;
 		this.year = year;
 	}
 	
-	
-	
-	public Student(int num, int kor, int eng, int math) {
+	public Student(int num, int score) {
 		super();
 		this.num = num;
-		this.kor = kor;
-		this.eng = eng;
-		this.math = math;
+		this.score = score;
 	}
-
-
 
 	public int getNum() {
 		return num;
@@ -107,25 +110,10 @@ public class Student {
 		this.year = year;
 	}
 
-	public int getKor() {
-		return kor;
-	}
-	public void setKor(int kor) {
-		this.kor = kor;
-	}
-
-	public int getEng() {
-		return eng;
-	}
-	public void setEng(int eng) {
-		this.eng = eng;
-	}
-
-	public int getMath() {
-		return math;
-	}
-	public void setMath(int math) {
-		this.math = math;
+	@Override
+	public String toString() {
+		return "Student [num=" + num + ", name=" + name + ", addr=" + addr + ", gender=" + gender + ", ban=" + ban
+				+ ", height=" + height + ", age=" + age + ", score=" + score + ", year=" + year + "]";
 	}
 
 	//학점 반환 A/B/C/D/F
